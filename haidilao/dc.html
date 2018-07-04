@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<link href="./css/mui.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/personl.css">
+		<script type="text/javascript" src="../js/publicMethods.js?v=1.0"></script>
+		<script>
+			getLoadding();
+			gotoResignLoginPage('../', GobackSource.GOBACK_MY_ORDER_SOURCE_HOME);
+		</script>
+		<script> src="./jquery.js"</script>
+		<script src="./vue.js"></script>
+		<style type="text/css">
+			#queue-item .order-collapse.mui-table-view-cell:last-child:after {
+				height: 0;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 30px;
+			}
+			
+			.mui-table-view-cell:after {
+				height: 0px;
+			}
+			
+			.myorder-head-name .sendOrder {
+				padding: 6px 12px;
+				border: 1px solid #d34d3d;
+				color: #d34d4d;
+				right: 30px;
+				line-height: 100%;
+			}
+			.queue-content {
+				min-height: 44px;
+    		height: auto !important;
+			}
+			.queue-content p{
+				width: 100% !important;
+				/*min-height: 44px !important;*/
+    		line-height: 22px !important;
+    		padding-top: 10px;
+			}
+			.cell-list-footer-buttons {
+				display: block;
+				width: 100% !important;
+				text-align: right;
+			}
+			.paihaoCancel {
+				  width: 52px;
+			    height: 26px;
+			    padding: 0;
+			    margin-top: 9px;
+			    margin-right: 10px;
+			    background: #999;
+			    color: #fff;
+			}
+		</style>
+
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="myorder.js?v=100" src="myorder.js?v=100"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./../js/jquery-1.11.1.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mui" src="./../js/mui.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="grayOrder" src="./../js/grayscale.js"></script></head>
+
+	<body class="loseHeight mui-ios mui-ios-11 mui-ios-11-0">
+		<div class="mui-bar mui-bar-nav bar-nav-header header-hidden" style="display: block;">
+			<a class="mui-icon mui-icon-left-nav mui-pull-left resign_login_go_back"></a>
+			<h1 class="mui-title">我的订单</h1>
+		</div>
+		<!--主体内容-->
+		<div class="head-margin clear-margin">
+
+		</div>
+		<div class="mui-content myOrder-content">
+			<div id="segmentedControl" class="mui-segmented-control myorder">
+				<a class="mui-control-item" href="#date-item">
+					订单
+				</a>
+				<a class="mui-control-item mui-active" href="#queue-item">
+					排号
+				</a>
+			</div>
+			<div id="date-item" class="mui-control-content">
+				<small class="none-myorder" style="display: block;">暂无数据，去点餐吧</small>
+				<li class="mui-table-view-cell mui-collapse order-collapse" style="display:none;">
+					<a class="mui-navigate-right" id="img_time_icon">
+						<img src="http://imageapp.haidilao.com/img/time.png" class="timelogo">
+						<span>2016-07</span>
+					</a>
+					<div class="mui-collapse-content myorder-content">
+						<!--3中状态-->
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell myorder-head-name">
+								<img src="http://imageapp.haidilao.com/img/shopHead-Defult.png" onerror="loadDefultImg()">
+								<span>天通苑店</span>
+								<strong class="mui-pull-right">外送</strong>
+								<button type="button" class="mui-btn Btn OBtn sendOrder analyze_action" id="invitation" data-code="10133" description="发送请柬">发送请柬</button>
+							</li>
+							<li class="myorderCart-body">
+								<p>当前状态：<em class="myorderCurrent">订座成功</em></p>
+								<p>就餐时间：<em>2016年1月13日&nbsp;&nbsp;10:40</em></p>
+								<p>就餐人数：<em><span></span>人</em></p>
+							</li>
+							<li class="myorder-detail myorderDetail">
+								<a class="mui-navigate-right analyze_action" data-code="10126" description="我的订单进入订单详情">订单详情</a>
+							</li>
+							<li class="myorderCart-footer">
+								<button type="button" class="mui-btn mui-btn-blue Btn OBtn order analyze_action">点餐</button>
+								<button type="button" class="mui-btn mui-btn-blue Btn OBtn cancer analyze_action" data-code="10129" description="我的订单取消">取消</button>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</div>
+			<div id="queue-item" class="mui-control-content mui-active">
+				<!--<small class="none-paihao">还没有记录哦</small>-->
+				
+				<div id="preQueue"></div>
+			<li class="mui-table-view-cell mui-collapse order-collapse mui-active" style="display: list-item;">
+					<a class="mui-navigate-right" id="img_time_icon">
+						<img src="http://imageapp.haidilao.com/img/time.png" class="timelogo">
+						<span>2018-07-04</span>
+					</a>
+					
+					<div class="mui-collapse-content myorder-content" id="my-queue">
+						
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell store-hreder">
+								<img src="http://cater.haidilao.com/Cater/upload/store/face1.jpg" class="store-radius" onerror="loadDefultImg()">
+								<span class="store-name">和平广场店</span>
+								<span class="store-hreder-right">{{yue}}月{{ri}}日-晚市</span>
+							</li>
+							<li class="mui-table-view-cell queue-list-contnet">
+								<div class="queue-list-div">
+									<p>当前叫号</p>
+									<span class="cell-queue-font">{{dangqian}}</span>
+								</div>
+								<div class="queue-list-div">
+									<p>我的排号</p>
+									<span class="cell-queue-font cell-my-queue">{{paihao}}</span>
+								</div>
+								<div class="queue-list-div">
+									<p>桌型</p>
+									<span class="cell-queue-font">小桌</span>
+								</div>
+							</li>
+							<li class="myorder-detail myqueueDetail" data-queue-orderid="XDL2D2018070424002" style="display: none;">
+								<a class="mui-navigate-right analyze_action" data-code="10134" description="我的排号去订单详情">订单详情</a>
+							</li>
+							<li class="mui-table-view-cell queue-list-footer queue-content">
+								<p>若过号，根据现场情况适当安排。</p>
+								<div class="cell-list-footer-buttons">
+									<button type="button" class="cell-list-right-button analyze_action " data-queue-paystatus="0" data-queue-id="22120309" data-queue-orderid="XDL2D2018070424002" data-queue-hasdining="0" data-queue-storeid="132102" description="我的排号去点餐" data-code="10131">去点餐</button>
+									<button type="button" class="analyze_action paihaoCancel" data-code="10129" description="我的订单取消" data-queue-paystatus="0" data-queue-id="22120309" data-queue-orderid="XDL2D2018070424002" data-queue-hasdining="0" data-queue-storeid="132102" style="display: none;">取消</button>
+								</div>
+								<div id="xiugai">
+									月<input type="text" v-model="yue">
+									日<input type="text" v-model="
+									ri">
+									当前<input type="text" v-model="dangqian">
+									排号<input type="text" v-model="paihao">
+								</div>
+							</li>
+						</ul><div class="preItem"></div>
+					</div><div class="prediv"></div>
+				</li></div>
+		</div>
+		<div class="tellog_wrapper">
+			<div class="telAlert">
+				<h1>提示</h1>
+				<p>退款请联系门店,门店电话为:</p>
+				<div class="worldTel">
+				</div>
+				<h2 id="srueBtn">确定</h2>
+			</div>
+		</div>
+
+	
+	<!-- <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script> -->
+	<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
+	<script data-main="myorder.js?v=100" src="../js/require-2.1.11.js"></script>
+	<script type="text/javascript" src="../js/util.checknow.js"></script>
+
+	<script>
+	        new Vue({
+            el: "#queue-item",
+            data: {
+                yue: "7",
+                ri: "4",
+				dangqian: "00",
+				paihao: "00"
+            }
+            })
+	</script>
+		<script>
+				$(".cell-list-right-button").click(function(){
+					$("#xiugai").toggle();
+				});
+
+	  
+		  </script>
+</body>
+</html>
